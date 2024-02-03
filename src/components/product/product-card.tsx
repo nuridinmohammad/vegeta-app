@@ -26,10 +26,7 @@ interface CardProps {
   className?: string;
 }
 
-const ProductCard: React.FC<CardProps> = ({
-  details,
-  className,
-}: CardProps) => {
+const ProductCard: React.FC<CardProps> = ({ details, className }: CardProps) => {
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
 
   return (
@@ -37,7 +34,7 @@ const ProductCard: React.FC<CardProps> = ({
       <div
         className={cn(
           "w-full flex flex-col gap-2 p-4 border border-gray rounded-xl hover:transition-all hover:ease-in hover:duration-200 hover:drop-shadow-lg bg-white relative",
-          className
+          className,
         )}
       >
         <div
@@ -53,12 +50,7 @@ const ProductCard: React.FC<CardProps> = ({
 
         <div className="w-full relative">
           <AspectRatio ratio={1 / 1}>
-            <Image
-              src={details.img}
-              layout="fill"
-              alt=""
-              objectFit="contain"
-            />
+            <Image src={details.img} layout="fill" alt="" objectFit="contain" />
           </AspectRatio>
         </div>
         <div className="text-leaf text-xl font-medium">{details.name}</div>

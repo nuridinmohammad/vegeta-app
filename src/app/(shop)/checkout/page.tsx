@@ -32,14 +32,8 @@ export default function Checkout() {
     },
   ];
 
-  const totalPrice = products.reduce(
-    (total, product) => total + product.price * (product.itemCount || 1),
-    0
-  );
-  const totalItem = products.reduce(
-    (total, product) => total + (product.itemCount || 1),
-    0
-  );
+  const totalPrice = products.reduce((total, product) => total + product.price * (product.itemCount || 1), 0);
+  const totalItem = products.reduce((total, product) => total + (product.itemCount || 1), 0);
   const applicationFee = 1000;
   const deliveryFee = deliveryMethod === "HOME_DELIVERY" ? 140000 : 0;
   const insurance = deliveryMethod === "HOME_DELIVERY" ? 2000 : 0;
@@ -90,16 +84,12 @@ export default function Checkout() {
               <div className="w-full separator" />
               <div className="flex justify-between">
                 <div className="text-lg font-semibold">Total Tagihan</div>
-                <div className="text-lg font-semibold">
-                  Rp {formatNumber(subtotal)}
-                </div>
+                <div className="text-lg font-semibold">Rp {formatNumber(subtotal)}</div>
               </div>
             </div>
             <div className="flex flex-1">
               <Link className="w-[100%]" href={"/payment"}>
-                <Button className={cn("w-[100%] mt-6 bg-leaf", hover.shadow)}>
-                  Lanjutkan Pembayaran
-                </Button>
+                <Button className={cn("w-[100%] mt-6 bg-leaf", hover.shadow)}>Lanjutkan Pembayaran</Button>
               </Link>
             </div>
           </div>

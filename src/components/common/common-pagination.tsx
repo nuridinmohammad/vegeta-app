@@ -12,11 +12,7 @@ interface IconProps {
   onChange: (activePage: number) => void;
 }
 
-const CommonPagination: React.FC<IconProps> = ({
-  page,
-  total,
-  onChange,
-}: IconProps) => {
+const CommonPagination: React.FC<IconProps> = ({ page, total, onChange }: IconProps) => {
   const [activePage, setActivePage] = useState(page);
 
   return (
@@ -30,10 +26,7 @@ const CommonPagination: React.FC<IconProps> = ({
             onChange(activePage - 1);
           }}
         >
-          <IconChevronLeft
-            className="w-6 h-6"
-            stroke={activePage <= 1 ? "gloves" : "pesto"}
-          />
+          <IconChevronLeft className="w-6 h-6" stroke={activePage <= 1 ? "gloves" : "pesto"} />
         </div>
         <div className="px-4">
           Halaman {activePage} {total && <span>/ {total}</span>}
@@ -46,10 +39,7 @@ const CommonPagination: React.FC<IconProps> = ({
             onChange(activePage + 1);
           }}
         >
-          <IconChevronRight
-            className="w-6 h-6"
-            stroke={activePage >= (total || 1) ? "gloves" : "pesto"}
-          />
+          <IconChevronRight className="w-6 h-6" stroke={activePage >= (total || 1) ? "gloves" : "pesto"} />
         </div>
       </div>
     </>

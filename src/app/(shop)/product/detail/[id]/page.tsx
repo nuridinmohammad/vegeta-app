@@ -31,18 +31,11 @@ export default function Products() {
       <div className="w-content flex pt-5 gap-12">
         <div className="border p-2 rounded-xl">
           <div className="w-[376px] h-[376px] relative">
-            <Image
-              src={productDetails.img}
-              layout="fill"
-              alt=""
-              objectFit="contain"
-            />
+            <Image src={productDetails.img} layout="fill" alt="" objectFit="contain" />
           </div>
         </div>
         <div className="flex flex-col gap-4">
-          <div className="text-leaf font-semibold">
-            {productDetails.category}
-          </div>
+          <div className="text-leaf font-semibold">{productDetails.category}</div>
           <div className="text-4xl font-semibold">{productDetails.name}</div>
           <div className="flex gap-2">
             <IconStar className="w-5 h-5" stroke="carrot" fill="carrot" />
@@ -54,32 +47,18 @@ export default function Products() {
             Rp {formatNumber(productDetails.price)} / {productDetails.unit}
           </div>
           <div className="text-gray-400">
-            Wortel dapat dimakan dengan berbagai cara. Pada wortel mentah hanya
-            3% β-ririencha yang dilepaskan selama proses pencernaan, proses ini
-            dapat ditingkatkan hingga 39% melalui pulping, memasaknya dan
-            menambahkan minyak sawit. Bisa juga dengan cara di buat jus wortel
-            dan kandungan vitaminnya hampir sama dengan wortel yang dimakan
-            begitu saja.
+            Wortel dapat dimakan dengan berbagai cara. Pada wortel mentah hanya 3% β-ririencha yang dilepaskan selama proses pencernaan, proses ini dapat
+            ditingkatkan hingga 39% melalui pulping, memasaknya dan menambahkan minyak sawit. Bisa juga dengan cara di buat jus wortel dan kandungan
+            vitaminnya hampir sama dengan wortel yang dimakan begitu saja.
           </div>
           <div className="flex gap-4 items-center">
-            <CommonStepper
-              count={itemCount}
-              onChange={(count) => setItemCount(count)}
-            />
-            <Button
-              className={cn(
-                "py-1 px-4 bg-leaf text-white leading-4",
-                hover.shadow
-              )}
-            >
+            <CommonStepper count={itemCount} onChange={(count) => setItemCount(count)} />
+            <Button className={cn("py-1 px-4 bg-leaf text-white leading-4", hover.shadow)}>
               <IconCart className="w-5 h-5 mr-2" />
               Masukkan Keranjang
             </Button>
             <Button
-              className={cn(
-                "py-1 px-4 bg-carrot text-white leading-4",
-                hover.shadow
-              )}
+              className={cn("py-1 px-4 bg-carrot text-white leading-4", hover.shadow)}
               onClick={() => {
                 router.push("/checkout");
               }}
@@ -93,20 +72,12 @@ export default function Products() {
       <div className="w-content separator my-6" />
       <div className="w-content">
         <div className="flex justify-between mb-6 items-center">
-          <div className="text-leaf text-3xl font-semibold">
-            Rekomendasi buat kamu
-          </div>
-          <Link
-            href={"/product"}
-            className="text-base p-0 h-auto bg-white text-neutral-600"
-          >
+          <div className="text-leaf text-3xl font-semibold">Rekomendasi buat kamu</div>
+          <Link href={"/product"} className="text-base p-0 h-auto bg-white text-neutral-600">
             Lihat Selengkapnya {">"}
           </Link>
         </div>
-        <ProductShowcase
-          gridConfig={"grid-cols-4"}
-          products={recommendedProducts}
-        />
+        <ProductShowcase gridConfig={"grid-cols-4"} products={recommendedProducts} />
       </div>
     </main>
   );

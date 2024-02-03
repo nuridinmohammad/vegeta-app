@@ -12,10 +12,7 @@ interface ShowcaseProps {
   products: ProductDetails[];
 }
 
-const ProductShowcase: React.FC<ShowcaseProps> = ({
-  gridConfig,
-  products,
-}: ShowcaseProps) => {
+const ProductShowcase: React.FC<ShowcaseProps> = ({ gridConfig, products }: ShowcaseProps) => {
   return (
     <>
       <div className="w-full">

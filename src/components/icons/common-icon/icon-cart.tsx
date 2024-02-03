@@ -1,17 +1,8 @@
 import { IconProps } from "@/types/common";
 
-const IconCart: React.FC<IconProps> = ({
-  className = "",
-  fill = "primary",
-  stroke = "accent",
-}: IconProps) => {
+const IconCart: React.FC<IconProps> = ({ className = "", fill = "primary", stroke = "accent" }: IconProps) => {
   return (
-    <svg
-      className={className}
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg className={className} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clipPath="url(#clip0_115_2046)">
         <path
           d="M6.66659 18.3333C7.12682 18.3333 7.49992 17.9602 7.49992 17.5C7.49992 17.0397 7.12682 16.6666 6.66659 16.6666C6.20635 16.6666 5.83325 17.0397 5.83325 17.5C5.83325 17.9602 6.20635 18.3333 6.66659 18.3333Z"
