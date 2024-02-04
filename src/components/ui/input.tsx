@@ -23,18 +23,15 @@ const _renderPrefixSuffix = (item: string) => {
 const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, type, error, ...props }, ref) => {
   return (
     <>
-      <div className="relative">
-        <input
-          type={type}
-          className={cn(
-            "flex px-3 py-2 h-10 w-full rounded-md border border-input bg-background text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-            className,
-            { "pl-10": !!props.prefix },
-            { "pr-10": !!props.suffix }
-          )}
-          ref={ref}
-          {...props}
-        />
+      <div className={cn("relative flex items-center h-10 w-full rounded-md border border-input bg-background text-sm", className)}>
+      <input
+            type={type}
+            className={cn(
+              "flex-1 h-9 pl-4 w-full rounded-md ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            )}
+            ref={ref}
+            {...props}
+          />
 
         {props.prefix && <div className="absolute top-1/2 py-[10px] px-3 text-sm">{_renderPrefixSuffix(props.prefix)}</div>}
 

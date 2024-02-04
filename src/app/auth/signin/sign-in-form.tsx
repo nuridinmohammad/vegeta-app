@@ -54,10 +54,10 @@ function SignInForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-[100%]">
       <div className="w-[100%] text-3xl font-semibold tracking-widest mb-2 text-center">Masuk akun anda</div>
 
-      <Input className="w-[100%] p-4 rounded-sm" type="email" placeholder="Email" {...register("email")} error={errors.email?.message} />
+      <Input className="w-[100%]" type="email" placeholder="Email" {...register("email")} error={errors.email?.message} />
       <div className="w-[100%] relative mt-4">
         <Input
-          className="w-[100%] p-4 rounded-sm"
+          className="w-[100%]"
           type={showPassword ? "text" : "password"}
           placeholder="Kata Sandi"
           suffix="Eye"

@@ -27,11 +27,11 @@ function SignUpForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-[100%] gap-2">
       <div className="w-[100%] text-3xl font-semibold tracking-widest mb-2 text-center">Buat akun baru</div>
-      <Input className="w-[100%] p-4 rounded-sm" type="text" placeholder="Nama Lengkap" {...register("fullname")} error={errors.fullname?.message} />
-      <Input className="w-[100%] p-4 rounded-sm" type="email" placeholder="Email" {...register("email")} error={errors.email?.message} />
+      <Input className="w-[100%]" type="text" placeholder="Nama Lengkap" {...register("fullname")} error={errors.fullname?.message} />
+      <Input className="w-[100%]" type="email" placeholder="Email" {...register("email")} error={errors.email?.message} />
 
       <Input
-        className="w-[100%] p-4 rounded-sm"
+        className="w-[100%]"
         type={showPassword ? "text" : "password"}
         placeholder="Kata Sandi"
         suffix="Eye"
@@ -40,7 +40,7 @@ function SignUpForm() {
         error={errors.password?.message}
       />
       <Input
-        className="w-[100%] p-4 rounded-sm"
+        className="w-[100%]"
         type={showConfirmationPassword ? "text" : "password"}
         placeholder="Konfirmasi Kata Sandi"
         suffix="Eye"
