@@ -15,7 +15,7 @@ export async function POST(req: Request) {
 
     if (!user?.email || !passwordHash.verify(payload.password, user.password)) {
       return Response({
-        message: "Incorrect email and password",
+        message: "Incorrect email and password!",
         status: 404,
       });
     }
