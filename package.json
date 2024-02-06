@@ -54,6 +54,7 @@
     "prisma": "^5.9.1"
   },
   "prettier": {
-    "printWidth": 156
+    "printWidth": 256,
+    "semi": false
   }
 }

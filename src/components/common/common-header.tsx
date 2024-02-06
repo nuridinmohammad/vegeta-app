@@ -1,26 +1,28 @@
-"use client";
-import Image from "next/legacy/image";
-import Link from "next/link";
+"use client"
+import Image from "next/legacy/image"
+import Link from "next/link"
 
 // components
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { IconBell, IconCart, IconHeart, IconMessage, IconSettings } from "@/components/icons";
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
-import { LogoVegeta } from "@/components/icons";
-import CommonNotificationBadge from "@/components/common/common-notification-badge";
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { IconBell, IconCart, IconHeart, IconMessage, IconSettings } from "@/components/icons"
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
+import { LogoVegeta } from "@/components/icons"
+import CommonNotificationBadge from "@/components/common/common-notification-badge"
 
 // utils
-import { cn } from "@/lib/utils";
-import { hover } from "@/lib/hover";
+import { cn } from "@/lib/utils"
+import { hover } from "@/lib/hover"
 
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { signOut, useSession } from "next-auth/react"
 
 interface HeaderProps {}
 
 const CommonHeader: React.FC<HeaderProps> = () => {
-  const isLoggedIn = true;
+  const { data: session } = useSession()
+  console.log(session?.user)
 
   return (
     <>
@@ -57,7 +59,7 @@ const CommonHeader: React.FC<HeaderProps> = () => {
             </NavigationMenu>
           </div>
 
-          {isLoggedIn ? (
+          {session?.user ? (
             <div className="flex gap-4 items-center">
               <CommonNotificationBadge notificationDetail={{ color: "bg-leaf", count: 2 }}>
                 <IconMessage className={cn("w-6 h-6", hover.shadow)} stroke="text-black" />
@@ -67,14 +69,13 @@ const CommonHeader: React.FC<HeaderProps> = () => {
                 <IconBell className={cn("w-6 h-6", hover.shadow)} stroke="text-black" />
               </CommonNotificationBadge>
               <div className="w-[42px] h-[42px] rounded-full relative overflow-hidden">
-                <Image src="https://ui-avatars.com/api/?name=Taufan+Fadhilah&background=random" layout="fill" alt="" objectFit="cover" />
+                <Image src={`https://ui-avatars.com/api/?name=${session.user.fullname}&background=random`} layout="fill" alt="" objectFit="cover" />
               </div>
 
               <div className="flex flex-col w-[127px] justify-center">
                 <div className="text-xs">Hi, Apa Kabar?</div>
-                <div className="text-sm font-semibold">Taufan Fadhillah</div>
+                <div className="text-sm font-semibold">{session.user?.email?.split("@")[0]}</div>
               </div>
-
               <DropdownMenu>
                 <DropdownMenuTrigger>
                   <IconSettings className={cn("w-6 h-6 cursor-pointer", hover.shadow)} stroke="text-black" />
@@ -83,16 +84,26 @@ const CommonHeader: React.FC<HeaderProps> = () => {
                   <DropdownMenuItem>
                     <Link href="/history">History Transactions</Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <Link href="/auth/signin">Logout</Link>
+                  <DropdownMenuItem
+                    onClick={() =>
+                      signOut({
+                        callbackUrl: "/auth/signin",
+                      })
+                    }
+                  >
+                    Logout
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
           ) : (
             <div className="flex gap-6">
-              <Button className={cn("py-1 px-7 bg-leaf leading-4", hover.shadow)}>Daftar Sekarang</Button>
-              <Button className={cn("py-1 px-7 bg-carrot leading-4", hover.shadow)}>Masuk akun</Button>
+              <Link href="/auth/signup">
+                <Button className={cn("py-1 px-7 bg-leaf leading-4", hover.shadow)}>Daftar Sekarang</Button>
+              </Link>
+              <Link href="/auth/signin">
+                <Button className={cn("py-1 px-7 bg-carrot leading-4", hover.shadow)}>Masuk akun</Button>
+              </Link>
             </div>
           )}
         </div>
@@ -132,7 +143,7 @@ const CommonHeader: React.FC<HeaderProps> = () => {
         <div className="w-extra separator" />
       </div>
     </>
-  );
-};
+  )
+}
 
-export { CommonHeader };
+export { CommonHeader }

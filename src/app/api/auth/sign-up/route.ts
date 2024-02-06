@@ -7,6 +7,7 @@ import passwordHas from "password-hash";
 export async function POST(req: NextRequest) {
   try {
     const payload = await req.json();
+    
     const data: Prisma.UserCreateInput = {
       fullname: payload.fullname,
       email: payload.email,
