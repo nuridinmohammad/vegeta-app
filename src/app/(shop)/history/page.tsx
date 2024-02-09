@@ -17,6 +17,7 @@ import { cn } from "@/lib/utils";
 // assets
 import GoldBadge from "@/assets/images/badge-gold.png";
 import ProductsJSON from "@/assets/json/products.json";
+import { Product } from "@prisma/client";
 
 export default function History() {
   const [transactions] = useState([
@@ -27,7 +28,7 @@ export default function History() {
       products: ProductsJSON,
     },
   ]);
-  const [recommendedProducts] = useState<ProductDetails[]>(ProductsJSON);
+  const [recommendedProducts] = useState<Product[]>();
   const [activePage, setActivePage] = useState(1);
   const [totalPage] = useState(5);
 
@@ -102,7 +103,7 @@ export default function History() {
             Lihat Selengkapnya {">"}
           </Link>
         </div>
-        <ProductShowcase gridConfig={"grid-cols-4"} products={recommendedProducts} />
+        <ProductShowcase gridConfig={"grid-cols-4"} products={[]} />
       </div>
     </main>
   );
