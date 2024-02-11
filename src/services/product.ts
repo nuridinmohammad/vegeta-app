@@ -4,8 +4,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 
 interface ProductsResponse extends BaseResponse {
   data: {
-    total: number;
-    data: Product[];
+    total:number,
+    data:Product[]
   };
 }
 

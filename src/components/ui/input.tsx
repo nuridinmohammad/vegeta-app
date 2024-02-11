@@ -3,7 +3,8 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { IconEye, IconMagnifier } from "../icons";
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   prefix?: string;
   suffix?: string;
   error?: string;
@@ -11,7 +12,8 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 }
 
 const _renderIcon = (iconType: string) => {
-  if (iconType === "Magnifier") return <IconMagnifier className="w-5 h-5" stroke="ring" />;
+  if (iconType === "Magnifier")
+    return <IconMagnifier className="w-5 h-5" stroke="ring" />;
   if (iconType === "Eye") return <IconEye className="w-5 h-5" fill="ring" />;
 };
 
@@ -20,36 +22,50 @@ const _renderPrefixSuffix = (item: string) => {
   return _renderIcon(item);
 };
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, type, error, ...props }, ref) => {
-  return (
-    <>
-      <div className={cn("relative flex items-center h-10 w-full rounded-md border border-input bg-background text-sm", className)}>
-      <input
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type, error, onPressSuffix, ...props }, ref) => {
+    return (
+      <>
+        <div
+          className={cn(
+            "relative flex items-center h-10 w-full rounded-md border border-input bg-background text-sm",
+            className
+          )}
+        >
+          <input
             type={type}
             className={cn(
-              "flex-1 h-9 pl-4 w-full rounded-md ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              "flex-1 h-9 pl-4 w-full rounded-md ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+              {
+                "pl-10": props.prefix,
+              }
             )}
             ref={ref}
             {...props}
           />
 
-        {props.prefix && <div className="absolute top-1/2 py-[10px] px-3 text-sm">{_renderPrefixSuffix(props.prefix)}</div>}
+          {props.prefix && (
+            <div className="absolute py-[10px] px-3 text-sm">
+              {_renderPrefixSuffix(props.prefix)}
+            </div>
+          )}
 
-        {props.suffix && (
-          <div
-            className={cn("absolute top-1/4 px-3 right-0 text-sm", {
-              "cursor-pointer": !!props.onPressSuffix,
-            })}
-            onClick={() => props.onPressSuffix?.()}
-          >
-            {_renderPrefixSuffix(props.suffix)}
-          </div>
-        )}
-      </div>
-      <small className="text-red-500 mt-1">{error}</small>
-    </>
-  );
-});
+          {props.suffix && (
+            <div
+              className={cn("absolute px-3 right-0 text-sm", {
+                "cursor-pointer": !!onPressSuffix,
+              })}
+              onClick={() => onPressSuffix?.()}
+            >
+              {_renderPrefixSuffix(props.suffix)}
+            </div>
+          )}
+        </div>
+        <small className="text-red-500 mt-1">{error}</small>
+      </>
+    );
+  }
+);
 Input.displayName = "Input";
 
 export { Input };

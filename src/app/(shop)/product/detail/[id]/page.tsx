@@ -77,7 +77,7 @@ export default function Products() {
             Lihat Selengkapnya {">"}
           </Link>
         </div>
-        <ProductShowcase gridConfig={"grid-cols-4"} products={recommendedProducts} />
+        <ProductShowcase gridConfig={"grid-cols-4"} products={recommendedProducts || []} />
       </div>
     </main>
   );
