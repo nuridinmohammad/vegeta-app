@@ -18,6 +18,8 @@ function SignInForm() {
   const router = useRouter();
   const { toast } = useToast();
   const searchParams = useSearchParams();
+  const searchParams1 = new URLSearchParams();
+
   const [showPassword, setShowPassword] = useState(false);
   const {
     register,
@@ -30,7 +32,7 @@ function SignInForm() {
       const user = await signIn("credentials", {
         email: data.email,
         password: data.password,
-        callbackUrl: searchParams.get("callbackUrl") || "/",
+        callbackUrl: searchParams.get("callbackUrl") ?? "/",
         redirect: false,
       });
 
