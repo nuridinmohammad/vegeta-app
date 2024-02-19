@@ -14,12 +14,19 @@ import { formatNumber } from "@/lib/utils";
 interface CheckoutProps {
   isChecked?: boolean;
   productDetails: ProductDetails;
+  qty: number;
   onChangeItemCount: (count: number) => void;
   onDeleteItem: () => void;
 }
 
-const ProductCheckout: React.FC<CheckoutProps> = ({ isChecked, productDetails, onDeleteItem, onChangeItemCount }: CheckoutProps) => {
-  const [itemCount, setItemCount] = useState(productDetails.itemCount || 1);
+const ProductCheckout: React.FC<CheckoutProps> = ({
+  isChecked,
+  productDetails,
+  qty,
+  onDeleteItem,
+  onChangeItemCount,
+}: CheckoutProps) => {
+  const [itemCount, setItemCount] = useState(qty || 1);
 
   return (
     <>
@@ -32,12 +39,19 @@ const ProductCheckout: React.FC<CheckoutProps> = ({ isChecked, productDetails, o
           />
           <div className="p-1 border rounded-lg">
             <div className="w-[80px] h-[80px] relative">
-              <Image src={productDetails.img} layout="fill" alt="" objectFit="contain" />
+              <Image
+                src={productDetails.img}
+                layout="fill"
+                alt=""
+                objectFit="contain"
+              />
             </div>
           </div>
           <div className="flex flex-1 flex-col justify-center gap-2">
             <div>{productDetails.name}</div>
-            <div className="font-semibold">Rp {formatNumber(productDetails.price)}</div>
+            <div className="font-semibold">
+              Rp {formatNumber(productDetails.price)}
+            </div>
           </div>
           <CommonStepper
             count={itemCount}
@@ -46,7 +60,10 @@ const ProductCheckout: React.FC<CheckoutProps> = ({ isChecked, productDetails, o
               onChangeItemCount(count);
             }}
           />
-          <Button className="text-red-400 border-0 bg-white font-regular" onClick={() => onDeleteItem()}>
+          <Button
+            className="text-red-400 border-0 bg-white font-regular"
+            onClick={() => onDeleteItem()}
+          >
             Hapus
           </Button>
         </div>

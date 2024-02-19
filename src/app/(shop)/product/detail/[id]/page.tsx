@@ -19,7 +19,7 @@ import ProductsJSON from "@/assets/json/products.json"
 import { useGetAllProductsQuery, useGetProductByIdQuery } from "@/services/product"
 import { useSession } from "next-auth/react"
 import { useToast } from "@/components/ui/use-toast"
-import { useCheckoutMutation } from "@/services/transaction."
+import { useCheckoutMutation } from "@/services/transaction"
 
 export default function Products({ params }: { params: { id: string } }) {
   const { data: session } = useSession()
