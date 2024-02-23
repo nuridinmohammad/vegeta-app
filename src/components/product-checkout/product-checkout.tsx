@@ -10,10 +10,11 @@ import { ProductDetails } from "@/components/product/product-card";
 
 // utils
 import { formatNumber } from "@/lib/utils";
+import { Product } from "@prisma/client";
 
 interface CheckoutProps {
   isChecked?: boolean;
-  productDetails: ProductDetails;
+  productDetails: Product;
   qty: number;
   onChangeItemCount: (count: number) => void;
   onDeleteItem: () => void;

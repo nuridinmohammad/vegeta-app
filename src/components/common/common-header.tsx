@@ -22,7 +22,6 @@ interface HeaderProps {}
 
 const CommonHeader: React.FC<HeaderProps> = () => {
   const { data: session } = useSession()
-  console.log(session?.user)
 
   return (
     <>

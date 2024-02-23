@@ -47,17 +47,16 @@ function ItemList({ products = [] }: ItemListProps) {
       {products.map((product, index) => (
         <ProductCheckout
           key={`productCheckout${index}`}
-          productDetails={product?.product}
+          productDetails={product.product}
           onDeleteItem={() => {
             const updatedProducts = [...products];
             updatedProducts.splice(index, 1);
             // setProducts(updatedProducts);
           }}
           onChangeItemCount={(count) => {
-            const updatedProducts = [...products];
-            updatedProducts[index].qty = count;
-            // setProducts(updatedProducts);
-          }}
+            const updatedProduct = JSON.parse(JSON.stringify(products[index]));
+            updatedProduct.qty = count;
+        }}
           qty={product.qty}
         />
       ))}
