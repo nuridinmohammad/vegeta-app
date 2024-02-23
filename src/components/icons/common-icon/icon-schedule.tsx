@@ -1,25 +1,9 @@
 import { IconProps } from "@/types/common";
 
-const IconSchedule: React.FC<IconProps> = ({
-  className = "",
-  fill = "primary",
-  stroke = "primary",
-}: IconProps) => {
+const IconSchedule: React.FC<IconProps> = ({ className = "", fill = "primary", stroke = "primary" }: IconProps) => {
   return (
-    <svg
-      className={className}
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M6.6665 1.66663V4.16663"
-        stroke={`var(--${stroke})`}
-        strokeWidth="1.5"
-        strokeMiterlimit="10"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+    <svg className={className} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6.6665 1.66663V4.16663" stroke={`var(--${stroke})`} strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
       <path
         d="M13.3335 1.66663V4.16663"
         stroke={`var(--${stroke})`}
@@ -28,14 +12,7 @@ const IconSchedule: React.FC<IconProps> = ({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path
-        d="M2.9165 7.57483H17.0832"
-        stroke={`var(--${stroke})`}
-        strokeWidth="1.5"
-        strokeMiterlimit="10"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <path d="M2.9165 7.57483H17.0832" stroke={`var(--${stroke})`} strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
       <path
         d="M18.3332 15.8333C18.3332 16.4583 18.1582 17.05 17.8498 17.55C17.2748 18.5167 16.2165 19.1667 14.9998 19.1667C14.1582 19.1667 13.3915 18.8583 12.8082 18.3333C12.5498 18.1167 12.3248 17.85 12.1498 17.55C11.8415 17.05 11.6665 16.4583 11.6665 15.8333C11.6665 13.9917 13.1582 12.5 14.9998 12.5C15.9998 12.5 16.8915 12.9417 17.4998 13.6333C18.0165 14.225 18.3332 14.9917 18.3332 15.8333Z"
         stroke={`var(--${stroke})`}
@@ -59,27 +36,9 @@ const IconSchedule: React.FC<IconProps> = ({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path
-        d="M9.99607 11.4168H10.0036"
-        stroke={`var(--${stroke})`}
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M6.91209 11.4168H6.91957"
-        stroke={`var(--${stroke})`}
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M6.91209 13.9168H6.91957"
-        stroke={`var(--${stroke})`}
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <path d="M9.99607 11.4168H10.0036" stroke={`var(--${stroke})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M6.91209 11.4168H6.91957" stroke={`var(--${stroke})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M6.91209 13.9168H6.91957" stroke={`var(--${stroke})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 };

@@ -10,6 +10,7 @@ import FavoriteButton from "@/components/common/buttons/favorite-button";
 
 // utils
 import { cn, formatNumber } from "@/lib/utils";
+import { Product } from "@prisma/client";
 
 export interface ProductDetails {
   img: string;
@@ -22,14 +23,11 @@ export interface ProductDetails {
 }
 
 interface CardProps {
-  details: ProductDetails;
+  details: Product;
   className?: string;
 }
 
-const ProductCard: React.FC<CardProps> = ({
-  details,
-  className,
-}: CardProps) => {
+const ProductCard: React.FC<CardProps> = ({ details, className }: CardProps) => {
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
 
   return (
@@ -37,7 +35,7 @@ const ProductCard: React.FC<CardProps> = ({
       <div
         className={cn(
           "w-full flex flex-col gap-2 p-4 border border-gray rounded-xl hover:transition-all hover:ease-in hover:duration-200 hover:drop-shadow-lg bg-white relative",
-          className
+          className,
         )}
       >
         <div
@@ -53,23 +51,18 @@ const ProductCard: React.FC<CardProps> = ({
 
         <div className="w-full relative">
           <AspectRatio ratio={1 / 1}>
-            <Image
-              src={details.img}
-              layout="fill"
-              alt=""
-              objectFit="contain"
-            />
+            <Image src={details.img} layout="fill" alt="" objectFit="contain" />
           </AspectRatio>
         </div>
         <div className="text-leaf text-xl font-medium">{details.name}</div>
         <div className="font-semibold">
-          Rp {formatNumber(details.price)} / {details.unit}
+          Rp {formatNumber(details.price)} / kg
         </div>
         <div className="flex gap-2">
           <IconStar className="w-5 h-5" fill="carrot" stroke="carrot" />
           <span>{details.rating}</span>
           <span>|</span>
-          <span>{details.sold} terjual</span>
+          <span>{details.itemSold} terjual</span>
         </div>
         <Button
           className="py-1 px-7 bg-leaf hover:transition-all hover:ease-in hover:duration-200 hover:opacity-80 leading-4"

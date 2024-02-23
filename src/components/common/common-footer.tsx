@@ -5,16 +5,7 @@ import Link from "next/link";
 // components
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  IconCall,
-  IconEnvelope,
-  IconFacebook,
-  IconInstagram,
-  IconLocation,
-  IconSchedule,
-  IconTwitter,
-  IconYoutube,
-} from "@/components/icons";
+import { IconCall, IconEnvelope, IconFacebook, IconInstagram, IconLocation, IconSchedule, IconTwitter, IconYoutube } from "@/components/icons";
 import { LogoVegeta } from "@/components/icons";
 
 // assets
@@ -43,37 +34,18 @@ const CommonFooter: React.FC<HeaderProps> = () => {
           <div className="w-[900px] p-[52px] flex gap-[67px]">
             <div className="flex flex-col flex-1 justify-between">
               <div>
-                <div className="text-2xl font-semibold py-2">
-                  Dapatkan berita terbaru dari kami
-                </div>
+                <div className="text-2xl font-semibold py-2">Dapatkan berita terbaru dari kami</div>
                 <div className="text-xl text-gray-400 font-light">
-                  Mulai berbelanja dengan{" "}
-                  <span className="text-carrot font-bold">Vegeta</span>
+                  Mulai berbelanja dengan <span className="text-carrot font-bold">Vegeta</span>
                 </div>
               </div>
 
-              <Input
-                className="w-full p-4"
-                type="text"
-                placeholder="Masukkan alamat email"
-              />
-              <Input
-                className="w-full p-4"
-                type="text"
-                placeholder="Masukkan nomor telepon"
-              />
-              <Button className={cn("py-2 px-7 bg-carrot", hover.shadow)}>
-                Subscribe
-              </Button>
+              <Input className="w-full p-4" type="text" placeholder="Masukkan alamat email" />
+              <Input className="w-full p-4" type="text" placeholder="Masukkan nomor telepon" />
+              <Button className={cn("py-2 px-7 bg-carrot", hover.shadow)}>Subscribe</Button>
             </div>
 
-            <Image
-              src={FooterIllustration}
-              width={280}
-              height={280}
-              alt=""
-              className="object-cover"
-            />
+            <Image src={FooterIllustration} width={280} height={280} alt="" className="object-cover" />
           </div>
         </div>
 
@@ -102,16 +74,13 @@ const CommonFooter: React.FC<HeaderProps> = () => {
                     <IconCall className="w-6 h-6" /> <span>(0341) 4323332</span>
                   </Link>
                   <Link className="flex gap-2" href="/">
-                    <IconEnvelope className="w-6 h-6" />{" "}
-                    <span>hi@vegeta.test</span>
+                    <IconEnvelope className="w-6 h-6" /> <span>hi@vegeta.test</span>
                   </Link>
                   <Link className="flex gap-2" href="/">
-                    <IconLocation className="w-6 h-6" />{" "}
-                    <span>Jl. Cendrawasin No. 10 Klojen Malang</span>
+                    <IconLocation className="w-6 h-6" /> <span>Jl. Cendrawasin No. 10 Klojen Malang</span>
                   </Link>
                   <Link className="flex gap-2" href="/">
-                    <IconSchedule className="w-6 h-6" />{" "}
-                    <span>10.00-18.00, Senin-Minggu</span>
+                    <IconSchedule className="w-6 h-6" /> <span>10.00-18.00, Senin-Minggu</span>
                   </Link>
                 </div>
               </div>
@@ -139,22 +108,10 @@ const CommonFooter: React.FC<HeaderProps> = () => {
                 <div className="flex flex-col gap-4">
                   <div className="font-bold text-base text-black">Download</div>
                   <Link href="/">
-                    <Image
-                      src={LogoPlayStore}
-                      width={135}
-                      height={40}
-                      alt=""
-                      className="object-cover"
-                    />
+                    <Image src={LogoPlayStore} width={135} height={40} alt="" className="object-cover" />
                   </Link>
                   <Link href="/">
-                    <Image
-                      src={LogoAppStore}
-                      width={135}
-                      height={40}
-                      alt=""
-                      className="object-cover"
-                    />
+                    <Image src={LogoAppStore} width={135} height={40} alt="" className="object-cover" />
                   </Link>
                 </div>
               </div>

@@ -1,17 +1,8 @@
 import { IconProps } from "@/types/common";
 
-const IconLocation: React.FC<IconProps> = ({
-  className = "",
-  fill = "primary",
-  stroke = "primary",
-}: IconProps) => {
+const IconLocation: React.FC<IconProps> = ({ className = "", fill = "primary", stroke = "primary" }: IconProps) => {
   return (
-    <svg
-      className={className}
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg className={className} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M9.9999 11.1916C11.4358 11.1916 12.5999 10.0275 12.5999 8.59158C12.5999 7.15564 11.4358 5.99158 9.9999 5.99158C8.56396 5.99158 7.3999 7.15564 7.3999 8.59158C7.3999 10.0275 8.56396 11.1916 9.9999 11.1916Z"
         stroke={`var(--${stroke})`}

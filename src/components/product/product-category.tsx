@@ -3,14 +3,7 @@ import Link from "next/link";
 
 // components
 import { Button } from "@/components/ui/button";
-import {
-  IconBeans,
-  IconFruit,
-  IconFungi,
-  IconGinger,
-  IconOnion,
-  IconVegetable,
-} from "@/components/icons";
+import { IconBeans, IconFruit, IconFungi, IconGinger, IconOnion, IconVegetable } from "@/components/icons";
 
 // utils
 import { cn } from "@/lib/utils";
@@ -44,20 +37,13 @@ const _renderIcon = (identifier: string) => {
   }
 };
 
-const ProductCategory: React.FC<CategoryProps> = ({
-  id,
-  icon,
-  color,
-  title,
-}: CategoryProps) => {
+const ProductCategory: React.FC<CategoryProps> = ({ id, icon, color, title }: CategoryProps) => {
   return (
     <Link href={`/product?category=${id}`} legacyBehavior>
       <Button className={cn("h-auto border rounded-xl", color, hover.shadow)}>
         <div className="flex flex-1 items-center rounded-xl py-6 px-4 gap-4">
           {_renderIcon(icon)}
-          <div className="flex flex-1 text-gray-600 text-xl font-semibold">
-            {title}
-          </div>
+          <div className="flex flex-1 text-gray-600 text-xl font-semibold">{title}</div>
         </div>
       </Button>
     </Link>

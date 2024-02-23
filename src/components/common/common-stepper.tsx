@@ -15,10 +15,7 @@ interface StepperProps {
   onChange: (count: number) => void;
 }
 
-const CommonStepper: React.FC<StepperProps> = ({
-  count,
-  onChange,
-}: StepperProps) => {
+const CommonStepper: React.FC<StepperProps> = ({ count, onChange }: StepperProps) => {
   const [itemCount, setItemCount] = useState(count || 0);
 
   const limit = { min: 1, max: 100 };
@@ -27,10 +24,7 @@ const CommonStepper: React.FC<StepperProps> = ({
     <>
       <div className="flex gap-4 items-center">
         <Button
-          className={cn(
-            "w-[40px] h-[40px] bg-white border text-leaf text-xl",
-            hover.shadow
-          )}
+          className={cn("w-[40px] h-[40px] bg-white border text-leaf text-xl", hover.shadow)}
           onClick={() => {
             if (itemCount <= limit.min) return;
 
@@ -49,9 +43,7 @@ const CommonStepper: React.FC<StepperProps> = ({
           type="text"
           value={itemCount}
           onChange={(e) => {
-            const updatedValue = parseInt(
-              e.target.value || limit.min.toString()
-            );
+            const updatedValue = parseInt(e.target.value || limit.min.toString());
             if (updatedValue <= limit.min || isNaN(updatedValue)) {
               setItemCount(limit.min);
               onChange(limit.min);
@@ -69,10 +61,7 @@ const CommonStepper: React.FC<StepperProps> = ({
           }}
         />
         <Button
-          className={cn(
-            "w-[40px] h-[40px] bg-white border text-leaf text-xl",
-            hover.shadow
-          )}
+          className={cn("w-[40px] h-[40px] bg-white border text-leaf text-xl", hover.shadow)}
           onClick={() => {
             if (itemCount >= limit.max) return;
 

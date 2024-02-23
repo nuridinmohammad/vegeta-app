@@ -24,9 +24,7 @@ function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
         <div className="bg-white rounded-[26px] flex flex-1 ml-[-26px] z-10 justify-center items-center">
-          <div className="w-[510px] h-[100%] py-[48px] flex flex-col items-center justify-center gap-4">
-            {children}
-          </div>
+          <div className="w-[510px] h-[100%] py-[48px] flex flex-col items-center justify-center gap-4">{children}</div>
         </div>
       </div>
     </main>

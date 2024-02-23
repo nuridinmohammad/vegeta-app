@@ -1,4 +1,3 @@
-
 import IconBag from "./common-icon/icon-bag";
 import IconBell from "./common-icon/icon-bell";
 import IconCall from "./common-icon/icon-call";
@@ -44,18 +43,15 @@ export {
   IconSchedule,
   IconSettings,
   IconStar,
-
   IconBeans,
   IconFruit,
   IconFungi,
   IconGinger,
   IconOnion,
   IconVegetable,
-
   IconFacebook,
   IconInstagram,
   IconYoutube,
   IconTwitter,
-
   LogoVegeta,
-}
+};

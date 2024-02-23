@@ -1,17 +1,8 @@
 import { IconProps } from "@/types/common";
 
-const IconMarket: React.FC<IconProps> = ({
-  className = "",
-  fill = "primary",
-  stroke = "accent",
-}: IconProps) => {
+const IconMarket: React.FC<IconProps> = ({ className = "", fill = "primary", stroke = "accent" }: IconProps) => {
   return (
-    <svg
-      className={className}
-      viewBox="0 0 21 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg className={className} viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M2.67505 9.35V13.0917C2.67505 16.8333 4.17505 18.3333 7.91672 18.3333H12.4084C16.15 18.3333 17.65 16.8333 17.65 13.0917V9.35"
         stroke={`var(--${stroke})`}
