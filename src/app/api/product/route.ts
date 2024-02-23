@@ -18,7 +18,6 @@ export async function GET(req: NextRequest) {
         .map((val) => +val) || undefined
     const skip = page * take 
 
-
     const queryConditions = {
       AND: [
         {
